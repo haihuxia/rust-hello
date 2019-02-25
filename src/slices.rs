@@ -42,10 +42,10 @@ fn first_word_b(s: &str) -> &str {
 
 #[cfg(test)]
 mod tests {
+    use crate::slices;
+
     #[test]
     fn a() {
-        use crate::slices;
-
         let hello = String::from("hello world");
 
         let word = slices::first_word_a(&hello);
@@ -55,8 +55,6 @@ mod tests {
 
     #[test]
     fn b() {
-        use crate::slices;
-
         let hello = String::from("hello world");
 
         let word = slices::first_word_b(&hello);
@@ -66,8 +64,6 @@ mod tests {
 
     #[test]
     fn c() {
-        use crate::slices;
-
         let hello = "hello world";
 
         let word = slices::first_word_b(&hello);

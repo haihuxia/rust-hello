@@ -1,10 +1,10 @@
 #[derive(Debug)]
-enum UsState {
+pub enum UsState {
     Alabama,
     Alaska,
 }
 
-enum Coin {
+pub enum Coin {
     Penny,
     Nickel,
     Dime,
@@ -12,7 +12,7 @@ enum Coin {
 }
 
 fn value_in_cents(coin: Coin) -> u32 {
-    match Coin {
+    match coin {
         Coin::Penny => 1,
         Coin::Nickel => 5,
         Coin::Dime => 10,
@@ -37,5 +37,12 @@ fn a() {
 }
 
 fn b() {
-
+    let some_u8_value = 0u8;
+    match some_u8_value {
+        1 => println!("one"),
+        3 => println!("three"),
+        5 => println!("five"),
+        7 => println!("serven"),
+        _ => (),
+    }
 }

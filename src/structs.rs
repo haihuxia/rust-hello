@@ -84,12 +84,10 @@ fn area_c(rectangle: &Rectangle) -> u32 {
 
 #[cfg(test)]
 mod tests {
-    use crate::structs::Rectangle;
+    use crate::structs::{self, Rectangle};
 
     #[test]
     fn test_area_a() {
-        use crate::structs;
-
         let width = 30;
         let height = 50;
 
@@ -103,8 +101,6 @@ mod tests {
 
     #[test]
     fn test_area_b() {
-        use crate::structs;
-
         let rect = (30, 50);
 
         println!(
@@ -117,8 +113,6 @@ mod tests {
 
     #[test]
     fn test_area_c() {
-        use crate::structs;
-
         let rect = Rectangle { width: 30, height: 50 };
 
         // rect1 is Rectangle { width: 30, height: 50 }
