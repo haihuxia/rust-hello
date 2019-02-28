@@ -1,4 +1,6 @@
 use std::io;
+use std::env;
+use std::fs;
 use std::cmp::Ordering;
 use rand::Rng;
 
@@ -21,9 +23,26 @@ mod performance_group {
 }
 
 fn main() {
-    // performance_group::clarinet_trio();
-    // performance_group::instrument::clarinet();
+    let args: Vec<String> = env::args().collect();
 
+    let query = &args[1];
+    let filename = &args[2];
+
+    println!("Searching for {}", query);
+    println!("In file {}", filename);
+
+    let contents = fs::read_to_string(filename)
+        .expect("Something went wrong reading the file");
+
+    println!("With text:\n{}", contents);
+}
+
+fn a() {
+     performance_group::clarinet_trio();
+     performance_group::instrument::clarinet();
+}
+
+fn guess_game() {
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
