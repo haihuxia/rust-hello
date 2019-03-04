@@ -15,6 +15,7 @@ pub mod errors;
 pub mod gennic;
 pub mod traits;
 pub mod lifetimes;
+pub mod iterators;
 
 pub struct Config {
     pub query: String,
