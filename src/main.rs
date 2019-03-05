@@ -23,7 +23,23 @@ fn main() {
 fn chapter12() {
     let args: Vec<String> = env::args().collect();
 
-    let config = Config::new(&args).unwrap_or_else(|err| {
+    let config = Config::new12(&args).unwrap_or_else(|err| {
+        eprintln!("Problem parsing arguments: {}", err);
+        process::exit(1);
+    });
+
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.filename);
+
+    if let Err(e) = rust_hello::run(config) {
+        println!("Application error: {}", e);
+
+        process::exit(1);
+    }
+}
+
+fn chapter13() {
+    let config = Config::new13(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
         process::exit(1);
     });

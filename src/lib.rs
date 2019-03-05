@@ -24,13 +24,32 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn new(args: &[String]) -> Result<Config, &'static str> {
+    pub fn new12(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
             return Err("not enough arguments");
         }
 
         let query = args[1].clone();
         let filename = args[2].clone();
+
+        // CASE_INSENSITIVE=1 cargo run to poem.txt
+        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+
+        Ok(Config { query, filename, case_sensitive })
+    }
+
+    pub fn new13(mut args: std::env::Args) -> Result<Config, &'static str> {
+        args.next();
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a query string"),
+        };
+
+        let filename = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Didn't get a file name"),
+        };
 
         // CASE_INSENSITIVE=1 cargo run to poem.txt
         let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
@@ -76,6 +95,12 @@ fn parse_config_a(args: &[String]) -> (&str, &str) {
 }
 
 fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    contents.lines()
+        .filter(|line| line.contains(query))
+        .collect()
+}
+
+fn search_a<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut results = Vec::new();
 
     for line in contents.lines() {
@@ -113,7 +138,7 @@ mod tests {
                 safe, fast, productive
                 Pick three.";
 
-        assert_eq!(vec!["safe, fast, productive"], search(query, contents));
+        assert_eq!(vec!["                safe, fast, productive"], search(query, contents));
     }
 
     #[test]
@@ -125,7 +150,7 @@ mod tests {
                 Pick three.
                 Duct tape.";
 
-        assert_eq!(vec!["safe, fast, productive"], search(query, contents));
+        assert_eq!(vec!["                safe, fast, productive"], search(query, contents));
     }
 
     #[test]
