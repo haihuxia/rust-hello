@@ -16,6 +16,8 @@ pub mod gennic;
 pub mod traits;
 pub mod lifetimes;
 pub mod iterators;
+pub mod boxpoints;
+pub mod deref;
 
 pub struct Config {
     pub query: String,
