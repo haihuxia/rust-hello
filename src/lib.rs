@@ -19,6 +19,7 @@ pub mod iterators;
 pub mod boxpoints;
 pub mod deref;
 pub mod drop;
+pub mod rc;
 
 pub struct Config {
     pub query: String,
