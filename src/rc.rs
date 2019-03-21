@@ -8,7 +8,7 @@ enum List {
 #[cfg(test)]
 mod tests {
     use std::rc::Rc;
-    use crate::rc::List::{Cons, Nil, Cons};
+    use crate::rc::List::{Cons, Nil};
 
     #[test]
     fn a() {
