@@ -18,6 +18,7 @@ pub mod lifetimes;
 pub mod iterators;
 pub mod boxpoints;
 pub mod deref;
+pub mod drop;
 
 pub struct Config {
     pub query: String,
