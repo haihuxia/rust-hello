@@ -20,6 +20,7 @@ pub mod boxpoints;
 pub mod deref;
 pub mod drop;
 pub mod rc;
+pub mod refcell;
 
 pub struct Config {
     pub query: String,
