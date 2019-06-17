@@ -21,6 +21,7 @@ pub mod deref;
 pub mod drop;
 pub mod rc;
 pub mod refcell;
+pub mod weak;
 
 pub struct Config {
     pub query: String,
