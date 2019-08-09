@@ -22,6 +22,7 @@ pub mod drop;
 pub mod rc;
 pub mod refcell;
 pub mod weak;
+pub mod thread;
 
 pub struct Config {
     pub query: String,
