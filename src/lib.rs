@@ -23,6 +23,7 @@ pub mod rc;
 pub mod refcell;
 pub mod weak;
 pub mod thread;
+pub mod channel;
 
 pub struct Config {
     pub query: String,

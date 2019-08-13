@@ -19,4 +19,13 @@ mod tests {
 
         handle.join().unwrap();
     }
+
+    #[test]
+    fn b() {
+        let v = vec![1, 2, 3];
+        let handle = thread::spawn(move || {
+            println!("Here is vector: {:?}", v);
+        });
+        handle.join().unwrap();
+    }
 }
