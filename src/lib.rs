@@ -25,6 +25,7 @@ pub mod weak;
 pub mod thread;
 pub mod channel;
 pub mod mutex;
+pub mod oop;
 
 pub struct Config {
     pub query: String,
