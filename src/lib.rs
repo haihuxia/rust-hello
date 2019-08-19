@@ -26,6 +26,7 @@ pub mod thread;
 pub mod channel;
 pub mod mutex;
 pub mod oop;
+pub mod pattern;
 
 pub struct Config {
     pub query: String,
