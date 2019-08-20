@@ -27,6 +27,8 @@ pub mod channel;
 pub mod mutex;
 pub mod oop;
 pub mod pattern;
+pub mod unsafe_spuerpowers;
+pub mod advanced_traits;
 
 pub struct Config {
     pub query: String,
